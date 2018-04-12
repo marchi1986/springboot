@@ -1,5 +1,6 @@
 package com.example.springbootenterprise.service;
 
+import com.example.springbootenterprise.bean.UserDetailImpl;
 import com.example.springbootenterprise.dao.SysUserRepository;
 import com.example.springbootenterprise.domain.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,20 @@ public class CustomUserService implements UserDetailsService{
     private SysUserRepository sysUserRepository;
 
     @Override
+    //重写UserDetailsService接口里面的抽象方法
+    //根据用户名 返回一个UserDetails的实现类的实例
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-
-        SysUser user=sysUserRepository.findByUsername(s);
-        if (user==null){
-            throw new UsernameNotFoundException("用户名:"+s+"不存在!");
+        System.out.println("查找用户：" + s);
+        SysUser user = sysUserRepository.findByUsername(s);
+        if(user == null)
+        {
+            throw new UsernameNotFoundException("没有该用户");
         }
 
-        return user;
+        //查到User后将其封装为UserDetails的实现类的实例供程序调用
+        //用该User和它对应的Role实体们构造UserDetails的实现类
+        return new UserDetailImpl(user);
     }
+
+
 }

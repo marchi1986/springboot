@@ -2,15 +2,15 @@ package com.example.springbootenterprise.domain;
 
 public class Msg {
     private String title;
-    private String coneten;
+    private String content;
     private String etraInfo;
 
     public Msg() {
     }
 
-    public Msg(String title, String coneten, String etraInfo) {
+    public Msg(String title, String content, String etraInfo) {
         this.title = title;
-        this.coneten = coneten;
+        this.content = content;
         this.etraInfo = etraInfo;
     }
 
@@ -22,12 +22,12 @@ public class Msg {
         this.title = title;
     }
 
-    public String getConeten() {
-        return coneten;
+    public String getContent() {
+        return content;
     }
 
-    public void setConeten(String coneten) {
-        this.coneten = coneten;
+    public void setContent(String coneten) {
+        this.content = coneten;
     }
 
     public String getEtraInfo() {
