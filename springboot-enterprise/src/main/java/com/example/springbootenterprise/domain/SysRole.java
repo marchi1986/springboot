@@ -1,8 +1,8 @@
 package com.example.springbootenterprise.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 public class SysRole {
@@ -13,6 +13,9 @@ public class SysRole {
     @GeneratedValue
     private Long id;
     private String name;
+
+    @ManyToMany(cascade={CascadeType.REFRESH},fetch = FetchType.EAGER)
+    private List<SysResource> resources;
 
     public Long getId() {
         return id;
@@ -28,5 +31,13 @@ public class SysRole {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<SysResource> getResources() {
+        return resources;
+    }
+
+    public void setResources(List<SysResource> resources) {
+        this.resources = resources;
     }
 }

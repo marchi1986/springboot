@@ -15,4 +15,11 @@ public class HomeController {
         model.addAttribute("msg",msg);
         return "home";
     }
+
+    @RequestMapping("/security")
+    public String security(Model model){
+        Msg msg=new Msg("测试标题","测试内容","额外信息");
+        model.addAttribute("msg",msg);
+        return "home";
+    }
 }
