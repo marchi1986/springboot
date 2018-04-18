@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: test
+#http://localhost:9001/actuator/health
+management:
+  server:
+    port: 9001
+
+
+my:
+  name: marchi
+  age: 31
+  number: ${random.int}
+  uuid: ${random.uuid}
+  max: ${random.int(10)}
+  value: ${random.value}
+  greeting: hi,i`m ${my.name}
