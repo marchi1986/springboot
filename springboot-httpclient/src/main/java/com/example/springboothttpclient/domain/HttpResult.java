@@ -34,4 +34,11 @@ public class HttpResult {
         this.body = body;
     }
 
+    @Override
+    public String toString() {
+        return "HttpResult{" +
+                "code=" + code +
+                ", body='" + body + '\'' +
+                '}';
+    }
 }
